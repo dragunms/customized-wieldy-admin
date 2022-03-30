@@ -1,0 +1,18 @@
+export const ROLE_TYPES = ['READ', 'CREATE', 'UPDATE', 'DELETE', 'RESTORE'];
+/* ACCOUNT */
+
+export const USER_ROLE = {
+    READ: 42001,
+    CREATE: 42002,
+    UPDATE: 42003,
+    DELETE: 42004,
+    RESTORE: 42005,
+};
+
+export const USER_POSITION_ROLE = {
+    READ: 42011,
+    CREATE: 42012,
+    UPDATE: 42013,
+    DELETE: 42014,
+    RESTORE: 42015,
+};

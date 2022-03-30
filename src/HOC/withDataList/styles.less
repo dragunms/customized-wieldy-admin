@@ -1,0 +1,445 @@
+@import '~antd/es/style/themes/default.less';
+
+.textOverflow() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+.numberOfLines(@number: 1) {
+    display: -webkit-box;
+
+    -webkit-line-clamp: @number;
+    -moz-line-clamp: @number;
+    line-clamp: @number;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+}
+.textOverflowMulti(@line: 3, @bg: #fff) {
+    position: relative;
+    max-height: @line * 1.5em;
+    margin-right: -1em;
+    padding-right: 1em;
+    overflow: hidden;
+    line-height: 1.5em;
+    text-align: justify;
+    &::before {
+        position: absolute;
+        right: 14px;
+        bottom: 0;
+        padding: 0 1px;
+        background: @bg;
+        content: '...';
+    }
+    &::after {
+        position: absolute;
+        right: 14px;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: white;
+        content: '';
+    }
+}
+
+// mixins for clearfix
+// ------------------------
+.clearfix() {
+    zoom: 1;
+    &::before,
+    &::after {
+        display: table;
+        content: ' ';
+    }
+    &::after {
+        clear: both;
+        height: 0;
+        font-size: 0;
+        visibility: hidden;
+    }
+}
+
+.standard-list {
+    :global {
+        .ant-card-head {
+            border-bottom: none;
+        }
+
+        .ant-card-head-title {
+            padding: 24px 0;
+            line-height: 32px;
+        }
+
+        .ant-card-extra {
+            padding: 24px 0;
+        }
+
+        .ant-list-pagination {
+            margin-top: 24px;
+            text-align: right;
+        }
+
+        .ant-avatar-lg {
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+        }
+    }
+    .ant-table-cell {
+        min-width: 120px;
+    }
+    .ant-table-cell-action {
+        white-space: nowrap;
+        .action {
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        .ant-btn {
+            margin-bottom: 10px;
+        }
+        .date-list-tooltip {
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    }
+
+    .ant-list-item-meta {
+        align-items: center;
+        flex: 0;
+    }
+
+    .label {
+        display: none;
+    }
+    .content {
+        max-width: 600px;
+        .numberOfLines(3);
+    }
+    .headerInfo {
+        position: relative;
+        text-align: center;
+
+        & > span {
+            display: inline-block;
+            margin-bottom: 4px;
+            color: @text-color-secondary;
+            font-size: @font-size-base;
+            line-height: 22px;
+        }
+
+        & > p {
+            margin: 0;
+            color: @heading-color;
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        & > em {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 56px;
+            background-color: @border-color-split;
+        }
+    }
+
+    .listContent {
+        font-size: 0;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .listContentItem {
+            display: inline-block;
+            margin-left: 40px;
+            color: @text-color-secondary;
+            font-size: @font-size-base;
+            vertical-align: middle;
+
+            > span {
+                line-height: 20px;
+            }
+
+            > p {
+                margin-top: 4px;
+                margin-bottom: 0;
+                line-height: 22px;
+            }
+        }
+    }
+
+    .ant-card-head {
+        padding: 0 16px;
+    }
+
+    .ant-card-body {
+        padding: 16px;
+    }
+
+    .ant-pagination {
+        display: flex;
+
+        .ant-pagination-total-text {
+            display: flex;
+            flex: 1;
+        }
+    }
+
+    .extraContentSearch {
+        width: 272px;
+        margin-left: 16px;
+    }
+
+    .modal-delete-name {
+        color: red;
+    }
+
+}
+
+@media screen and (max-width: @screen-xs) {
+    .standard-list {
+        :global {
+            .ant-list-item-content {
+                display: block;
+                flex: none;
+                width: 100%;
+            }
+
+            .ant-list-item-action {
+                margin-left: 0;
+            }
+        }
+
+        .listContent {
+            margin-left: 0;
+
+            & > div {
+                margin-left: 0;
+            }
+        }
+
+        .listCard {
+            :global {
+                .ant-card-head-title {
+                    overflow: visible;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @screen-sm) {
+    .standard-list {
+        .extraContentSearch {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .headerInfo {
+            margin-bottom: 16px;
+
+            & > em {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @screen-md) {
+    .standardList {
+        .listContent {
+            & > div {
+                display: block;
+            }
+
+            & > div:last-child {
+                top: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    .listCard {
+        :global {
+            .ant-radio-group {
+                display: block;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @screen-lg) and (min-width: @screen-md) {
+    .standard-list {
+        .listContent {
+            & > div {
+                display: block;
+            }
+
+            & > div:last-child {
+                top: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @screen-xl) {
+    .standard-list {
+        .listContent {
+            & > div {
+                margin-left: 24px;
+            }
+
+            & > div:last-child {
+                top: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .standard-list {
+        .listContent {
+            text-align: right;
+
+            & > div:last-child {
+                top: 0;
+            }
+        }
+    }
+}
+
+.standardListForm {
+    :global {
+        .ant-form-item {
+            margin-bottom: 12px;
+
+            &:last-child {
+                margin-bottom: 32px;
+                padding-top: 4px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: @screen-lg) {
+    .standardList {
+        .ant-list-item {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 0;
+        }
+
+        .ant-list-item-meta {
+            padding-bottom: 6px;
+        }
+
+        .listContent {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            align-items: flex-start;
+
+            .listContentItem {
+                margin-left: 0;
+                padding: 3px 0;
+            }
+        }
+
+        .ant-card-body {
+            padding: 12px;
+        }
+
+        .title {
+            display: inline;
+            margin-right: 6px;
+        }
+
+        .ant-list-item-action {
+            width: 100%;
+            margin: 12px 0 0 0;
+
+            > li {
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+
+        .ant-table-thead {
+            display: none;
+        }
+
+        .ant-table-cell {
+            display: block;
+            width: 100%;
+            padding: 6px 12px;
+        }
+
+        .ant-table-cell-action {
+            display: flex;
+            font-size: 14px;
+            white-space: nowrap;
+
+            .action {
+                margin: 0 6px;
+            }
+        }
+
+        .ant-divider-vertical {
+            margin: 6px 0;
+            top: 0;
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .ant-card {
+            background: none;
+            border: none;
+        }
+
+        .ant-table {
+            border: none !important;
+            background: none;
+        }
+
+        .ant-table-tbody > tr > td {
+            border: none;
+        }
+
+        .ant-table-cell.ant-table-selection-column {
+            display: none;
+        }
+
+        .ant-table-row {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+            margin: 12px;
+            border: 1px solid hsv(0, 0, 91%);
+            border-radius: 3px;
+        }
+    }
+}
+
+.ant-html-modal {
+    .ant-modal-body {
+        padding: 0 !important;
+        min-height: 1000px;
+    }
+}
+
+.formResult {
+    width: 100%;
+
+    [class^='title'] {
+        margin-bottom: 8px;
+    }
+}

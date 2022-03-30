@@ -1,0 +1,20 @@
+export const STATUS = {
+    WAITING: 0,
+    ACTIVATED: 1,
+    SUCCESS: 1,
+    REJECT: 2,
+    HIDDEN: 3,
+    EXPIRED: 4,
+    USED: 0,
+    NEW: 1,
+    UNREAD: 0,
+    READ: 1,
+    NOT_VERIFIED: 0,
+    BLOCKED: 2,
+    WAITING_ACCEPT: 0,
+    CANCEL: 2,
+    RECEIVED: 3,
+    NOT_AVAILABLE: 0,
+    AVAILABLE: 1,
+};
+

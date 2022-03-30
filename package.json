@@ -1,0 +1,84 @@
+{
+  "name": "admin-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "react-app-rewired build",
+    "build-all": "npm-run-all -s build:prod build:staging",
+    "build:prod": "env-cmd -f .env.production npm-run-all -s build sync",
+    "build:staging": "env-cmd -f .env.staging npm-run-all -s build sync",
+    "less": "lessc --js src/styles/wieldy.less public/css/style.css --compress -x",
+    "start": "react-app-rewired start",
+    "sync": "node sync.js",
+    "install-cli": "cd cli && yarn install",
+    "cli": "node cli/bin/admin-cli.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "@ant-design/compatible": "1.0.2",
+    "@ant-design/icons": "4.1.0",
+    "@tinymce/tinymce-react": "3.12.2",
+    "antd": "4.10.3",
+    "connected-react-router": "6.9.1",
+    "copy-to-clipboard": "3.3.1",
+    "ejs": "3.1.5",
+    "env-cmd": "10.1.0",
+    "history": "4.9.0",
+    "jodit-react": "1.0.70",
+    "less": "3.10.3",
+    "less-loader": "5.0.0",
+    "less-vars-to-js": "1.3.0",
+    "lodash": "4.17.15",
+    "moment": "2.24.0",
+    "node-sass": "4.14.1",
+    "nprogress": "0.2.0",
+    "omit-empty": "1.0.0",
+    "react": "16.12.0",
+    "react-bootstrap-sweetalert": "5.2.0",
+    "react-custom-scrollbars": "4.2.1",
+    "react-dom": "16.12.0",
+    "react-hot-loader": "4.12.18",
+    "react-icons": "4.1.0",
+    "react-intl": "3.9.3",
+    "react-notifications": "1.4.3",
+    "react-placeholder": "3.0.2",
+    "react-redux": "7.1.3",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "react-router-redux": "4.0.8",
+    "react-scripts": "3.4.0",
+    "recharts": "1.8.5",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3",
+    "sanitize-html": "2.3.2",
+    "tinymce": "5.7.1",
+    "url-search-params": "1.1.0",
+    "video-react": "0.14.1"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "1.13.0",
+    "customize-cra": "0.9.1",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.2.0",
+    "react-app-rewire-eslint": "0.2.3",
+    "react-app-rewired": "2.1.5"
+  }
+}
